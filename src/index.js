@@ -1,4 +1,2 @@
-require('./style.css');
-require('./index.html');
-
-console.log('test');
+import './index.html';
+import './style.css';
