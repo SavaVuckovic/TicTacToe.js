@@ -12,7 +12,11 @@ UI.selectPlayerNames().then(playerNames => {
 
   // listen for player moves
   UI.addSlotListeners((index) => {
-    game.playMove(index);
-    UI.renderSlots(game.board.slots);
+    const moveResult = game.playMove(index);
+    UI.renderSlots(game.gameBoard.getSlots());
+
+    if (moveResult !== false) {
+      UI.showGameOver(moveResult);
+    }
   });
 });

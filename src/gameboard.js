@@ -1,47 +1,57 @@
-const gameBoard = {
-  slots: [],
-  winningRow: null,
-  possibleWins: [
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ],
-  reset() {
-    for (let i = 0; i < 9; i++) {
-      this.slots.push(null);
-    }
-    this.winningRow = null;
-  },
-  slotTaken(slotIndex) { 
-    return this.slots[slotIndex] === null ? false : true;
-  },
-  fillInSlot(slotIndex, symbol) {
-    if (this.slotTaken(slotIndex)) {
-      return false;
-    } else {
-      this.slots[slotIndex] = symbol;
-    }
-  },
-  someoneWon() {
-    this.possibleWins.forEach(row => {
-      if (
-        this.slots[row[0]] === this.slots[row[1]] &&
-        this.slots[row[0]] === this.slots[row[2]] &&
-        this.slots[row[0]] !== null
-      ) {
-        this.winningRow = row;
-      }
-    });
-    return this.winningRow === null ? false : this.winningRow;
-  },
-  allSlotsFull() {
-    this.slots.every(slot => slot !== null);
+const slots = [];
+const possibleWins = [
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+let winningRow = null;
+
+// returns current slots state
+const getSlots = () => slots;
+
+// clears the board
+const reset = () => {
+  for (let i = 0; i < 9; i++) {
+    slots.push(null);
   }
+  winningRow = null;
 };
 
-export default gameBoard;
+// checks if a slot is already played
+const slotTaken = slotIndex => {
+  return slots[slotIndex] === null ? false : true;
+};
+
+// plays a slot
+const fillInSlot = (slotIndex, symbol) => {
+  slots[slotIndex] = symbol;
+};
+
+// checks if there is a winning row present
+const someoneWon = () => {
+  possibleWins.forEach(row => {
+    if (slots[row[0]] === slots[row[1]] && slots[row[0]] === slots[row[2]] && slots[row[0]] !== null) {
+      winningRow = row;
+    }
+  });
+  return winningRow === null ? false : winningRow;
+};
+
+// checks if all slots are played
+const allSlotsFull = () => {
+  return slots.every(slot => slot !== null);
+};
+
+export default {
+  getSlots,
+  reset,
+  slotTaken,
+  fillInSlot,
+  someoneWon,
+  allSlotsFull
+};
