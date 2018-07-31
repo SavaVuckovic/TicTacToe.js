@@ -72,16 +72,6 @@ body {
   color: #5bc0be;
 }
 
-.modal-close {
-  font-weight: bold;
-  font-size: 24px;
-  color: #fff;
-}
-
-.modal-close:hover {
-  color: #ad0909;
-}
-
 .modal-body {
   padding: 10px;
 }
@@ -121,4 +111,17 @@ body {
 
 #players-form button:hover {
   color: #5bc0be;
+}
+
+#countdown {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 128px;
+  display: none;
 }

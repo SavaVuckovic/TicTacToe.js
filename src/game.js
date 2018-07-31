@@ -38,8 +38,9 @@ const playMove = slotIndex => {
     if (!gameOver()) {
       switchCurrentPlayer();
     } 
-  
     return gameOver();
+  } else {
+    return false;
   }
 };
 

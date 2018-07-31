@@ -10,6 +10,8 @@ const renderSlots = boardSlots => {
     } else if (correspondingSymbol === 'o') {
       slot.innerHTML = '&#9675;';
       slot.style.color = '#00a8e8';
+    } else {
+      slot.innerHTML = '';
     }
   });
 };
@@ -48,14 +50,22 @@ const addSlotListeners = callback => {
 };
 
 // displays a game over modal with a proper message
-const showGameOver = msg => {
+const showGameOver = (msg, callback) => {
   const modal = document.querySelector('#game-over-modal');
-  const message = document.querySelector('#game-over-msg');
-  const close = document.querySelector('#close-game-over');
+  const message = document.querySelector('#message');
+  const playAgainBtn = document.querySelector('#play-again');
+  const refreshBtn = document.querySelector('#refresh');
+
   modal.style.display = 'block';
-  message.innerHTML = `<h3>${msg}</h3>`;
-  close.addEventListener('click', () => {
+  message.innerHTML = msg;
+
+  playAgainBtn.addEventListener('click', () => {
     modal.style.display = 'none';
+    callback();
+  });
+
+  refreshBtn.addEventListener('click', () => {
+    document.location.reload();
   });
 };
 

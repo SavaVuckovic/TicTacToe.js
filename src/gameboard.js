@@ -17,7 +17,7 @@ const getSlots = () => slots;
 // clears the board
 const reset = () => {
   for (let i = 0; i < 9; i++) {
-    slots.push(null);
+    fillInSlot(i, null);
   }
   winningRow = null;
 };

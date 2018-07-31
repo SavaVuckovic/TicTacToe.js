@@ -16,7 +16,10 @@ UI.selectPlayerNames().then(playerNames => {
     UI.renderSlots(game.gameBoard.getSlots());
 
     if (moveResult !== false) {
-      UI.showGameOver(moveResult);
+      UI.showGameOver(moveResult, () => {
+        game.start();
+        UI.renderSlots(game.gameBoard.getSlots());
+      });
     }
   });
 });
