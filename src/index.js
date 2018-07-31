@@ -9,15 +9,18 @@ UI.selectPlayerNames().then(playerNames => {
   game.addPlayer(playerNames['x'], 'x');
   game.addPlayer(playerNames['o'], 'o');
   game.start();
+  UI.showCurrentPlayer(game.getCurrentPlayer());
 
   // listen for player moves
   UI.addSlotListeners((index) => {
     const moveResult = game.playMove(index);
+    UI.showCurrentPlayer(game.getCurrentPlayer());
     UI.renderSlots(game.gameBoard.getSlots());
 
     if (moveResult !== false) {
       UI.showGameOver(moveResult, () => {
         game.start();
+        UI.showCurrentPlayer(game.getCurrentPlayer());
         UI.renderSlots(game.gameBoard.getSlots());
       });
     }

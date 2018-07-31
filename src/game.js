@@ -9,6 +9,11 @@ const addPlayer = (name, symbol) => {
   players[symbol] = new Player(name, symbol);
 };
 
+// returns current player object
+const getCurrentPlayer = () => {
+  return players[currentPlayer];
+};
+
 // starts the game
 const start = () => {
   currentPlayer = 'o';
@@ -46,6 +51,7 @@ const playMove = slotIndex => {
 
 export default {
   addPlayer,
+  getCurrentPlayer,
   start,
   playMove,
   gameBoard

@@ -8,13 +8,19 @@ body {
   box-sizing: border-box;
 }
 
+#current-player {
+  text-align: center;
+  color: #fff;
+  margin: 64px 0 0;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
   height: 600px;
   width: 600px;
   border: 5px solid #8d99ae;
-  margin: 150px auto 0;
+  margin: 64px auto 0;
 }
 
 .slot {
@@ -113,15 +119,18 @@ body {
   color: #5bc0be;
 }
 
-#countdown {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0,0.3);
+#play-again,
+#refresh {
+  padding: 8px 12px;
+  background: #fff;
+  border: 2px solid #1c2541;
+  color: #1c2541;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#play-again:hover,
+#refresh:hover {
+  background: #1c2541;
   color: #fff;
-  font-size: 128px;
-  display: none;
 }

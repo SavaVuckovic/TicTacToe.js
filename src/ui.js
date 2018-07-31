@@ -40,6 +40,12 @@ const selectPlayerNames = () => {
   });
 };
 
+// shows current player above the board
+const showCurrentPlayer = player => {
+  const playerName = document.querySelector('#current-player');
+  playerName.innerHTML = `${player.name}'s turn`;
+};
+
 // adds listeners to all slots 
 const addSlotListeners = callback => {
   slots.forEach(slot => {
@@ -72,6 +78,7 @@ const showGameOver = (msg, callback) => {
 export default {
   renderSlots,
   selectPlayerNames,
+  showCurrentPlayer,
   addSlotListeners,
   showGameOver
 };
