@@ -134,3 +134,51 @@ body {
   background: #1c2541;
   color: #fff;
 }
+
+@media screen and (max-width: 575.98px) { 
+  #current-player {
+    font-size: 22px;
+    margin-top: 36px;
+  }
+  
+  .board {
+    height: 300px;
+    width: 300px;
+    border: 2px solid #8d99ae;
+    margin-top: 24px;
+  }
+  
+  .slot {
+    border: 2px solid #8d99ae;
+    font-size: 64px;
+    padding-top: 9px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1199.98px) { 
+  #current-player {
+    font-size: 26px;
+    margin-top: 36px;
+  }
+  
+  .board {
+    height: 450px;
+    width: 450px;
+    border: 3px solid #8d99ae;
+    margin-top: 24px;
+  }
+  
+  .slot {
+    border: 3px solid #8d99ae;
+    font-size: 72px;
+    padding-top: 12px;
+  }
+
+  .modal-content {
+    width: 75%;
+  }
+}
