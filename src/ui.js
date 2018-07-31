@@ -25,7 +25,10 @@ const UI = {
         e.preventDefault();
         const playerX = e.target.elements['player-x-name'];
         const playerO = e.target.elements['player-o-name'];
-        const players = [playerX.value, playerO.value];
+        const players = {
+          x: playerX.value,
+          o: playerO.value
+        };
         playerX.value = '';
         playerO.value = '';
         modal.style.display = 'none';
