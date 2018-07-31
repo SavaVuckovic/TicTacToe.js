@@ -41,7 +41,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: rgba(0,0,0,0.3);
-  /* display: none; */
+  display: none;
 }
 
 .modal-content {
@@ -97,7 +97,7 @@ body {
   padding: 8px;
 }
 
-#player-form button {
+#players-form button {
   display: block;
   margin: 0 auto;
   width: 150px;
@@ -109,6 +109,6 @@ body {
   border: none;
 }
 
-#player-form button:hover {
+#players-form button:hover {
   color: #5bc0be;
 }

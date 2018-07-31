@@ -1,10 +1,16 @@
-import './index.html';
 import './style.css';
+import './index.html';
+import UI from './ui';
 
-// imports
+// wait until both players select a name
+UI.selectPlayerNames().then(playerNames => {
+  
+  
+});
 
-// prompt player 1 for a name
-// prompt player 2 for a name
+
+// console.log(playerNames);
+
 // add players to a game
 // start a game (loop until game over)
   // listen for clicks
