@@ -26,6 +26,18 @@ const gameBoard = {
     } else {
       this.slots[slotIndex] = symbol;
     }
+  },
+  someoneWon() {
+    this.possibleWins.forEach(row => {
+      if (
+        this.slots[row[0]] === this.slots[row[1]] &&
+        this.slots[row[0]] === this.slots[row[2]] &&
+        this.slots[row[0]] !== null
+      ) {
+        this.winningRow = row;
+      }
+    });
+    return this.winningRow === null ? false : this.winningRow;
   }
 };
 

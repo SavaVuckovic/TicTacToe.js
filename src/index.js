@@ -1,11 +1,12 @@
 import './index.html';
 import './style.css';
 
-// test
-// import gameBoard from './gameboard';
+// imports
 
-// gameBoard.reset();
-
-import UI from './ui.js';
-
-UI.renderSlots([null, 'x', 'x', null, null, null, 'o', 'o', 'o']);
+// prompt player 1 for a name
+// prompt player 2 for a name
+// add players to a game
+// start a game (loop until game over)
+  // listen for clicks
+  // once user clicks, check if field taken etc
+  // at the end of every turn switch player and check if game is draw
