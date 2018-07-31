@@ -1,33 +1,44 @@
 import Player from './player.js';
 import gameBoard from './gameboard.js';
 
-const Game = {
-  players: {},
-  board: gameBoard,
-  addPlayer(name, symbol) {
-    const player = new Player(name, symbol);
-    this.players[symbol] = player;
-  },
-  start() {
-    this.currentPlayer = 'o';
-    this.board.reset();
-  },
-  gameOver() {
-    if (this.board.someoneWon) {
-      return `Player ${this.players[this.currentPlayer].name} has won!`;
-    } else if (this.board.slots.every(slot => slot !== null)) {
-      return `This game is a draw!`;
-    } else {
-      return false;
-    }
-  },
-  switchCurrentPlayer() {
-    this.currentPlayer = this.currentPlayer === 'o' ? 'x' : 'o';
-  },
-  playMove(slotIndex) {
-    board.fillInSlot(slotIndex, this.currentPlayer);
-    return board.someoneWon();
+const players = {};
+let currentPlayer = 'o';
+
+const addPlayer = (name, symbol) => {
+  players[symbol] = new Player(name, symbol);
+};
+
+const start = () => {
+  currentPlayer = 'o';
+  gameBoard.reset();
+};
+
+const gameOver = () => {
+  if (gameBoard.someoneWon()) {
+    return `Player ${players[currentPlayer].name} has won!`;
+  } else if (gameBoard.allSlotsFull()) {
+    return `The result is a draw!`;
+  } else {
+    return false;
   }
 };
 
-export default Game;
+const switchCurrentPlayer = () => {
+  currentPlayer = currentPlayer === 'o' ? 'x' : 'o';
+};
+
+const playMove = (slotIndex) => {
+  gameBoard.fillInSlot(slotIndex, currentPlayer);
+  if (gameOver()) {
+    // temporary
+    console.log(gameOver());
+  } else {
+    switchCurrentPlayer();
+  }
+};
+
+export default {
+  addPlayer,
+  start,
+  playMove
+};

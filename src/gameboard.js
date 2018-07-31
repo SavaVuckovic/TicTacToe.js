@@ -38,6 +38,9 @@ const gameBoard = {
       }
     });
     return this.winningRow === null ? false : this.winningRow;
+  },
+  allSlotsFull() {
+    this.slots.every(slot => slot !== null);
   }
 };
 

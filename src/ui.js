@@ -35,6 +35,17 @@ const UI = {
         resolve(players);
       });
     });
+  },
+  // adds listeners to all slots 
+  addSlotListeners(callback) {
+    const slots = document.querySelectorAll('.slot');
+    const awaitingClicks = [];
+
+    slots.forEach(slot => {
+      slot.addEventListener('click', () => {
+        callback(slot.dataset.id);
+      });
+    });
   }
 };
 
